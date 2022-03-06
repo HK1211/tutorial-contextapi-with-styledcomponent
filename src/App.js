@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import StupidAccordion from "../src/components/StupidAccordion";
+import SmartAccordion, {
+  SmartAccordionHeader,
+  SmartAccordionBody,
+} from "../src/components/SmartAccordion";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <StupidAccordion />
+      <SmartAccordion>
+        <SmartAccordionHeader>I'm smart Accordion</SmartAccordionHeader>
+        <SmartAccordionBody>Body</SmartAccordionBody>
+      </SmartAccordion>
+      <SmartAccordion>
+        <StyledSmartHeader>I'm smart Accordion222</StyledSmartHeader>
+        <StyledSmartBody>Body</StyledSmartBody>
+      </SmartAccordion>
+    </>
   );
 }
 
-export default App;
+const StyledSmartHeader = styled(SmartAccordionHeader)`
+  background-color: green;
+`;
+
+const StyledSmartBody = styled(SmartAccordionBody)`
+  border: 1px solid green;
+`;
